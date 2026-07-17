@@ -1,0 +1,21 @@
+<div class="grid">
+  <c-container class="overflow-hidden" style="margin: 20px;">
+    <c-row [gutter]="2">
+      <c-col xs="3" *ngFor="let item of filteredData">
+        <c-card>
+          <a routerLink="/product/{{ item.id }}">
+            <img cCardImg="top" [src]="'http://localhost:3000/api/images/' + item.image" alt="{{ item.name }}">
+          </a>
+          <c-card-body>
+            <h5 cCardTitle>{{ item.name }}</h5>
+            <p cCardText>
+              {{ item.price | currency: 'VND' }}
+            </p>
+            <button class="btn btn-primary" cButton color="light" (click)="addToCart(item)">Thêm Nhanh</button>
+          
+          </c-card-body>
+        </c-card>
+      </c-col>
+    </c-row>
+  </c-container>
+</div>

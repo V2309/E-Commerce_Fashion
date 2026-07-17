@@ -1,0 +1,78 @@
+<!-- <div class="grid">
+    <c-header>
+        <c-container   [fluid]="true">
+          <c-header-nav>
+            <c-nav-item class="ms-auto">    
+                <a [active]="true" routerLink="/home" cNavLink>Trang chủ</a>
+              </c-nav-item>
+          </c-header-nav>
+          <c-header-nav class="ms-auto">
+          
+            <c-nav-item>
+            
+                <a cNavLink routerLink="/login">Đăng nhập </a>
+            </c-nav-item>
+            <c-nav-item>
+                <a cNavLink routerLink="/register">Đăng ký </a>
+              </c-nav-item>
+           
+            <c-dropdown alignment="end">
+              <a cDropdownToggle cNavLink>Tùy chọn</a>
+              <ul cDropdownMenu>
+                <li><a [routerLink]="[]" cDropdownItem>Action</a></li>
+                <li><a [routerLink]="[]" cDropdownItem>Another action</a></li>
+                <li>
+                  <hr cDropdownDivider>
+                </li>
+                <li><a [routerLink]="[]" cDropdownItem>Something else</a></li>
+              </ul>
+            </c-dropdown>
+          </c-header-nav    >
+        </c-container>
+       
+    
+      </c-header>
+      <app-navbar></app-navbar>
+    
+</div>
+ -->
+ <div class="grid">
+  <c-header>
+      <c-container [fluid]="true">
+        <c-header-nav>
+          <c-nav-item class="ms-auto">    
+              <a [active]="true" routerLink="/home" cNavLink>Trang chủ</a>
+          </c-nav-item>
+        </c-header-nav>
+        <c-header-nav class="ms-auto">
+          <ng-container *ngIf="!user; else loggedIn">
+            <c-nav-item>
+              <a cNavLink routerLink="/login">Đăng nhập </a>
+            </c-nav-item>
+            <c-nav-item>
+              <a cNavLink routerLink="/register">Đăng ký </a>
+            </c-nav-item>
+          </ng-container>
+          <ng-template #loggedIn>
+            <c-nav-item>
+              <a cNavLink> {{ user.name }}</a>
+            </c-nav-item>
+            <c-nav-item>
+              <a cNavLink (click)="logout()">Đăng xuất</a>
+            </c-nav-item>
+          </ng-template>
+          <c-dropdown alignment="end">
+            <a cDropdownToggle cNavLink>Tùy chọn</a>
+            <ul cDropdownMenu>
+              <li><a [routerLink]="[]" cDropdownItem>Action</a></li>
+              <li><a [routerLink]="[]" cDropdownItem>Another action</a></li>
+              <li>
+                <hr cDropdownDivider>
+              </li>
+            </ul>
+          </c-dropdown>
+        </c-header-nav>
+      </c-container>
+  </c-header>
+  <app-navbar></app-navbar>
+</div>

@@ -1,0 +1,54 @@
+<div class="grid">
+  
+    <c-header>
+        <c-container [fluid]="true">
+       
+            <c-header-nav>
+                <c-nav-item class="ms-auto">    
+                    <a [active]="true" [routerLink]="'/home'" cNavLink>
+                      <img src="./assets/img/logo.png" alt="" width="100px">
+                    </a>
+                  </c-nav-item>
+                  <c-dropdown alignment="end">
+                    <a cDropdownToggle cNavLink>Danh mục sản phẩm</a>
+                    <ul cDropdownMenu >
+                     <div class=""  *ngFor="let category of categories">
+                      <li><a [routerLink]="['/category', category.id]" cDropdownItem>{{ category.name }}</a></li>
+                     </div>
+                     
+                      
+                    </ul>  
+                  </c-dropdown>
+                  
+              </c-header-nav>
+              <c-header-nav class="ms-auto">
+                <c-navbar class="" colorScheme="light">
+                    <c-container [fluid]="true">
+                      <form cForm class="search-form" role="search" (ngSubmit)="onSearch()">
+                        <input aria-label="Search" [(ngModel)]="searchTerm" name="searchTerm" cFormControl class="me-2" placeholder="Search" type="search">
+                        <button cButton color="success" variant="outline">Search</button>
+                      </form>
+                    </c-container>
+                </c-navbar>
+             </c-header-nav>
+          <c-header-nav class="ms-auto">
+          
+            <c-nav-item>
+            
+                <a class="cart" cNavLink routerLink="/cart" >
+                    Giỏ hàng
+                    <c-badge color="danger" class="mess" position="top-end" shape="rounded-pill"></c-badge>
+                    <i class="fas fa-shopping-cart"></i>
+                  
+                </a>
+            </c-nav-item>
+          
+           
+         
+          </c-header-nav    >
+        </c-container>
+       
+    
+      </c-header>
+    
+</div>

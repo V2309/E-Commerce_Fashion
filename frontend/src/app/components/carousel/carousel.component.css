@@ -1,0 +1,31 @@
+.slide img {
+    height: 500px;
+    width: 100%;
+    object-fit: cover;
+}
+.carousel-slide {
+    position: relative;
+  }
+  
+  .carousel-caption {
+    position: absolute;
+    top: 0;
+    left: 20%;
+    display: block;
+    width: 30%;
+    transform: translate(0, 30%); /* Center horizontally */
+    text-align: left;
+  
+    color: white; /* Optional: Change text color */
+    padding: 10px; /* Optional: Add padding */
+  }
+  .carousel-caption h3 {
+    font-size: 3em;
+    font-weight: 700;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+  .carousel-caption p {
+    font-size: 1em;
+    font-weight: 400;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }

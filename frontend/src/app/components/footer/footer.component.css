@@ -1,0 +1,18 @@
+footer {
+    background-color: #f8f9fa;
+  }
+  
+  footer .social-icons a {
+    font-size: 1.2rem;
+    transition: color 0.3s;
+  }
+  
+  footer .social-icons a:hover {
+    color: #007bff;
+  }
+  .mx-auto p a {
+    text-decoration: none;
+  }
+  .container.mt-4 {
+    padding-left: 35px;
+    }

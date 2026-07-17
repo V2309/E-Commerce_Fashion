@@ -1,0 +1,26 @@
+
+<div class="grid">
+   <div class="abc">
+    <app-sidebar-category></app-sidebar-category>   
+    <c-container class="overflow-hidden" >
+      
+        <c-row [gutter]="2">
+          <c-col xs="3" *ngFor="let product of products">
+            <c-card>
+              <a routerLink="/product/{{ product.id }}">
+                <img cCardImg="top" [src]="'http://localhost:3000/api/images/' + product.image" alt="{{ product.name }}">
+              </a>
+              <c-card-body>
+                <h5 cCardTitle>{{ product.name }}</h5>
+                <p cCardText>
+                  {{  product.price| currency:'VND' }}
+                </p>
+                <button class="btn btn-primary" cButton color="light">Thêm Nhanh</button>
+              </c-card-body>
+            </c-card>
+          </c-col>
+        </c-row>
+      </c-container>
+   </div>
+</div>
+

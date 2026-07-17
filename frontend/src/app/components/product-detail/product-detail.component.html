@@ -1,0 +1,23 @@
+<div class="grid" *ngIf="product">
+    <div class="container px-4" style="margin-bottom: 50px; margin-top: 50px;">
+      <div class="row gx-5">
+        <div class="col">
+           
+        <a routerLink="/product/{{ product.id }}">
+            <img class="card-img-top" [src]="'http://localhost:3000/api/images/' + product.image" alt="{{ product.name }}">
+        </a>
+        </div>
+        <div class="col">
+          <div class="p-3 border bg-light">
+            <h1>{{ product.name }}</h1>
+            <p>Price: {{ product.price }}₫</p>
+            <p>Description: {{ product.description }}</p>
+            <button class="btn btn-primary">Thêm vào giỏ hàng</button>
+            <!-- Các thông tin khác của sản phẩm -->
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+

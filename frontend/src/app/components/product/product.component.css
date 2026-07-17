@@ -1,0 +1,38 @@
+
+
+c-row.row.g-2 {
+    margin-top: 20px;
+}
+
+.card-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limit to 2 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    font-size: 1.2em;
+  }
+  .card {
+   max-height: 400px;
+  }
+ .btnbuy{
+    background-color: #f0ad4e;
+    border-color: #f0ad4e;
+    color: white;
+    font-weight: 700;
+    font-size: 1em;
+    padding: 5px 10px;
+    border-radius: 6px;
+    border: none;
+  }
+
+  .btnbuy:hover{
+    background-color: #eea236;
+    opacity: 0.8;
+    border-color: #eea236;
+    color: rgb(21, 1, 1);
+  }
+  .card-title {
+    min-height: 47px;
+  }

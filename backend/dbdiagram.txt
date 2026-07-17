@@ -1,0 +1,73 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+Table categories {
+    id integer [primary key]
+    name varchar
+    image varchar
+    status enum
+    created_at timestamp
+    update_at timestamp
+}
+
+Table users {
+  id integer [primary key]
+  email varchar
+  password varchar
+  name varchar
+  role integer
+  phone varchar
+  created_at timestamp
+  update_at timestamp
+}
+
+Table products {
+  id integer [primary key]
+  name varchar
+ price int 
+ oldeprice int
+ image  varchar
+ quantity int
+ category_id int
+ buyturn int // so luong mua
+ size varchar
+ description text
+ created_at timestamp
+update_at timestamp
+}
+Table orders {
+  id intefer [primary key]
+  user_id int
+  status int
+  notes text
+  total int
+  created_at timestamp
+  update_at timestamp
+
+
+}
+ Table order_details {
+  id integer [primary key]
+  order_id int 
+  product_id int
+  price int
+  quantity int
+   created_at timestamp
+  update_at timestamp
+
+ }
+
+
+
+
+
+
+Ref: "categories"."id" < "products"."category_id"
+
+Ref: "users"."id" < "orders"."user_id"
+
+Ref: "orders"."id" < "order_details"."order_id"
+
+
+
+Ref: "products"."id" < "order_details"."product_id"

@@ -1,0 +1,74 @@
+# ============================================================
+#  ROOT .gitignore – AngularProject (ShopFashion)
+# ============================================================
+
+# ── Node modules ────────────────────────────────────────────
+node_modules/
+**/node_modules/
+
+# ── Environment / secrets ───────────────────────────────────
+.env
+**/.env
+# Keep .env.example tracked
+!**/.env.example
+
+# ── Build outputs ───────────────────────────────────────────
+dist/
+build/
+out/
+out-tsc/
+bazel-out/
+tmp/
+
+# ── Angular cache ───────────────────────────────────────────
+.angular/cache
+frontend/.angular/
+
+# ── Logs ────────────────────────────────────────────────────
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs/
+
+# ── Uploaded files (user content – not tracked) ─────────────
+backend/uploads/*
+# Keep the uploads folder itself (placeholder)
+!backend/uploads/.gitkeep
+
+# ── Coverage / test output ──────────────────────────────────
+coverage/
+.nyc_output/
+testem.log
+
+# ── IDEs and editors ────────────────────────────────────────
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.sublime-workspace
+.history/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ── OS generated files ──────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db
+
+# ── Lock files (optional – keep package-lock / yarn.lock) ───
+# yarn.lock    ← keep for reproducible installs
+# package-lock.json ← keep for reproducible installs
+
+# ── Misc ────────────────────────────────────────────────────
+*.local
+.sass-cache/
+/connect.lock
+/libpeerconnection.log
+/typings

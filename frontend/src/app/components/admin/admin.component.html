@@ -1,0 +1,141 @@
+<div class="grid" style="display: flex;min-height:400px;margin-top:50px"  >
+    <app-sidebar-admin></app-sidebar-admin>
+   
+        <div class="container">
+            <h2 *ngIf="!isAddProductFormVisible">Product List</h2>
+            <button (click)="showAddProductForm()" type="button" class="btn btn-primary" style="margin: 20px 0;" *ngIf="!isAddProductFormVisible">Add</button>
+          <!-- form adddaddd -->
+            <div *ngIf="isAddProductFormVisible">
+              <h3>Add New Product</h3>
+              <form (ngSubmit)="addProduct()">
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" class="form-control" id="name" [(ngModel)]="newProduct.name" name="name" >
+                </div>
+                <div class="form-group">
+                  <label for="price">Price</label>
+                  <input type="number" class="form-control" id="price" [(ngModel)]="newProduct.price" name="price" required>
+                </div>
+                <div class="form-group">
+                  <label for="oldprice">Old Price</label>
+                  <input type="number" class="form-control" id="oldprice" [(ngModel)]="newProduct.oldprice" name="oldprice">
+                </div>
+                <div class="form-group">
+                  <label for="image">Image</label>
+                  <input type="file" id="image" name="image"
+                  [(ngModel)]="newProduct.image" 
+                  (change)="onImageUpload($event)" placeholder="Hình ảnh" />
+                </div>
+                <div class="form-group">
+                  <label for="description">Description</label>
+                  <textarea class="form-control" id="description" [(ngModel)]="newProduct.description" name="description"></textarea>
+                </div>
+               
+                <div class="form-group">
+                  <label for="buyturn">Buy Turn</label>
+                  <input type="number" class="form-control" id="buyturn" [(ngModel)]="newProduct.buyturn" name="buyturn">
+                </div>
+                <div class="form-group">
+                  <label for="quantity">Quantity</label>
+                  <input type="number" class="form-control" id="quantity" [(ngModel)]="newProduct.quantity" name="quantity">
+                </div>
+                <div class="form-group">
+                  <label for="category_id">Category ID</label>
+                  <input type="number" class="form-control" id="category_id" [(ngModel)]="newProduct.category_id" name="category_id">
+                </div>
+                <!-- <div class="form-group">
+                  <label for="category">Category</label>
+                  <select class="form-control" id="category" [(ngModel)]="newProduct.category" name="category" required>
+                    <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+                  </select>
+                </div> -->
+                <div class="form-group" style="margin-bottom: 30px;">
+                  <label for="size">Size</label>
+                  <select class="form-control" id="size" [(ngModel)]="newProduct.size" name="size" required>
+                    <option *ngFor="let size of sizes" [value]="size">{{ size }}</option>
+                  </select>
+                </div>
+            <div class="form-group" style="margin-bottom: 30px;">
+              <button type="submit" class="btn btn-success" style="margin-right: 10px;">Save</button>
+              <button type="button" class="btn btn-secondary" (click)="hideAddProductForm()">Cancel</button>
+            </div>
+              </form>
+            </div>
+        
+         <!-- Edit Product Form -->
+<div *ngIf="isEditProductFormVisible">
+  <h3>Edit Product</h3>
+  <form (ngSubmit)="updateProduct()">
+    <div class="form-group">
+      <label for="editProductName">Name</label>
+      <input type="text" class="form-control" id="editProductName" [(ngModel)]="editProductData.name" name="editProductName" required>
+    </div>
+    <div class="form-group">
+      <label for="editProductPrice">Price</label>
+      <input type="number" class="form-control" id="editProductPrice" [(ngModel)]="editProductData.price" name="editProductPrice" required>
+    </div>
+    <div class="form-group">
+      <label for="editProductOldPrice">Old Price</label>
+      <input type="number" class="form-control" id="editProductOldPrice" [(ngModel)]="editProductData.oldprice" name="editProductOldPrice">
+    </div>
+    <div class="form-group">
+      <label for="editProductImage">Image</label>
+      <input type="file" id="editProductImage" name="editProductImage" (change)="onEditImageUpload($event)">
+    </div>
+    <div class="form-group">
+      <label for="editProductDescription">Description</label>
+      <textarea class="form-control" id="editProductDescription" [(ngModel)]="editProductData.description" name="editProductDescription"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="editProductBuyTurn">Buy Turn</label>
+      <input type="number" class="form-control" id="editProductBuyTurn" [(ngModel)]="editProductData.buyturn" name="editProductBuyTurn">
+    </div>
+    <div class="form-group">
+      <label for="editProductQuantity">Quantity</label>
+      <input type="number" class="form-control" id="editProductQuantity" [(ngModel)]="editProductData.quantity" name="editProductQuantity">
+    </div>
+    <div class="form-group">
+      <label for="editProductCategoryId">Category ID</label>
+      <input type="number" class="form-control" id="editProductCategoryId" [(ngModel)]="editProductData.category_id" name="editProductCategoryId">
+    </div>
+    <div class="form-group" style="margin-bottom: 30px;">
+      <label for="editProductSize">Size</label>
+      <select class="form-control" id="editProductSize" [(ngModel)]="editProductData.size" name="editProductSize" required>
+        <option *ngFor="let size of sizes" [value]="size">{{ size }}</option>
+      </select>
+    </div>
+    <div class="form-group" style="margin-bottom: 30px;">
+      <button type="submit" class="btn btn-primary" style="margin-right: 10px;">Save</button>
+      <button type="button" class="btn btn-secondary" (click)="cancelEdit()">Cancel</button>
+    </div>
+  </form>
+</div>
+
+            <table class="table table-striped" *ngIf="!isAddProductFormVisible && !isEditProductFormVisible">
+              <thead>
+                <tr class="table-success">
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Price</th>
+                  
+                  <th scope="col">Quantity</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let product of products; let i = index">
+                  <th scope="row">{{ i + 1 }}</th>
+                  <td>{{ product.name }}</td>
+                  <td>{{ product.price | currency: 'VND' }}</td>
+                  <td>{{ product.quantity }}</td>
+                  <td>
+                    <button type="button" class="btn btn-success mt" (click)="showEditProductForm(product)">Edit</button>
+                    <button type="button" class="btn btn-danger" (click)="deleteProduct(product.id)">Delete</button>
+                  </td>
+                 
+                </tr>
+              </tbody>
+            </table>
+          </div>
+    
+</div>

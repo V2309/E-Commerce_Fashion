@@ -1,0 +1,24 @@
+ul li {
+    list-style-type: none;
+}
+ul {
+    padding: 0;
+    margin: 0;  
+}
+
+  
+  #sidebar-wrapper .sidebar-heading {
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-align: center;
+    background-color: #f8f9fa;
+  }
+  
+  .list-group-item {
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .list-group-item:hover {
+    background-color: #e9ecef;
+    cursor: pointer;
+  }

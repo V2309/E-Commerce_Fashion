@@ -1,0 +1,21 @@
+# ============================================================
+#  BACKEND .gitignore
+# ============================================================
+
+# Environment variables (contains secrets!)
+.env
+
+# Dependencies
+node_modules/
+
+# Uploaded user images (runtime content, not source code)
+uploads/*
+!uploads/.gitkeep
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db

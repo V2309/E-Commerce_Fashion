@@ -1,0 +1,19 @@
+
+<div class="login-container">
+
+    <form (ngSubmit)="login()"> 
+      <h2 style="text-align: center;">Đăng Nhập</h2>
+      <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+        {{ errorMessage }}
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" class="form-control" [(ngModel)]="email" placeholder="Enter your email">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" [(ngModel)]="password" class="form-control" placeholder="Enter your password">
+      </div>
+      <button type="submit" class="btn-login btn btn-primary" >Login</button>
+    </form> 
+  </div>
